@@ -1,6 +1,8 @@
 package Shared;
 
-public class Message {
+import java.io.Serializable;
+
+public class Message implements Serializable {
     public int type; // e.g., 0 = login, 1 = sendMessage
     public String sender;
     public String content;    // message text or file name or ...
