@@ -131,6 +131,10 @@ In this task, you will complete the functionality for a basic command-line chat 
 
 #### 📝 Task Description
 
+#### 🛠 What You Need to Do
+
+---
+
 ### 📬 About the `Message` Class (Optional)
 
 The [`Message`](https://chatgpt.com/c/Shared/Message.java) class defines a **structured format** for data exchanged between the **Client** and **Server**, such as login requests, chat messages, file operations, or other commands.
@@ -147,10 +151,6 @@ The [`Message`](https://chatgpt.com/c/Shared/Message.java) class defines a **str
 > - Or your own custom protocol (e.g., delimited strings).
 >
 
-
----
-
-#### 🛠 What You Need to Do
 
 
 ---  
