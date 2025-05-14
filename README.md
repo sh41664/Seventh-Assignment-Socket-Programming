@@ -110,15 +110,25 @@ public class Client {
 
 ## Practical Questions 💻
 
-### 🧮 Chat 
+### 🧮 Chat
 
-
-#### Task Description
-
-#### 🛠 What  You  Need to Do
-
-
+#### 📝 Task Description
 ---
+In this task, you will complete the functionality for a basic command-line chat application. The application allows multiple users to join a shared chat room, send messages to each other, and receive messages in real time. Your work involves both the client-side and server-side logic needed to support live message exchange and communication flow.
+
+
+#### 🛠 What You Need to Do
+---
+- Implement the logic for reading and processing incoming messages on the server side.
+- Handle message sending from the server to an individual client.
+- Broadcast messages from one user to all others and update the chat history.
+- Ensure that the server updates its list of connected clients properly when a client disconnects.
+- On the client side, implement the functionality to listen for and display new messages from the server.
+- Start the client-side message receiver when a user enters the chat.
+- Enable sending a message from the client to the server when the user types in the chat.
+- Implement the exit mechanism so that when a user types `/exit`, the client disconnects cleanly from the server.
+
+
 
 ### 🏦 File Upload / Download
 
