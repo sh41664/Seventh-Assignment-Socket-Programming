@@ -172,8 +172,8 @@ Your work on this assignment will be evaluated based on:
 
 - Total: 100 points
     - 🧠 Theoretical Questions – 20 points
-    - 🧮 Practical Task 1 (Chat) – 50 points
-    - 🏦 Practical Task 2 (File Upload Download) – 30 points
+    - 🧮 Practical Task 1 (Chat) – 40 points
+    - 🏦 Practical Task 2 (File Upload Download) – 40 points
     - 🌟 Bonus Tasks – Up to 10 extra points
 
 ## Submission ⌛
@@ -184,12 +184,31 @@ Your work on this assignment will be evaluated based on:
 4. Push your code and the answers file to the remote repository.
 5. Submit a pull request to merge the `develop` branch with `main`.
 
-The deadline for submitting your code is **Wednesday, May 14** (24th of Ordibehesht)
+The deadline for submitting your code is **Wednesday, May 21** (31st of Ordibehesht)
 
 ## Additional Resources 📚
 
 For assistance with this assignment, you may refer to the following resources:
 
-- [Race Conditions and Critical Sections](https://jenkov.com/tutorials/java-concurrency/race-conditions-and-critical-sections.html)
+Consider watching the following videos and reading the blogs to grasp a better understanding of how socket programming in Java works:
+- [Java Socket Programming Client Server Messenger by WittCode](https://youtu.be/gchR3DpY-8Q?si=dSyRSnFmB6fLIpej)
+- [Java Socket Programming - Multiple Clients Chat by WittCode](https://www.youtube.com/watch?v=gLfuZrrfKes&t=739s)
+- [An IBM documentation on the **request-response design pattern**](https://developer.ibm.com/articles/awb-request-response-messaging-pattern-introduction/)
+- [A medium article on **request-response design pattern**](https://ritikchourasiya.medium.com/request-response-a-deep-dive-into-backend-communication-design-pattern-47d641d9eb90)
+- [A brief intro to request-response design pattern](https://youtu.be/TD1wxsJYAP0?si=G5Xq2WM5uST0e53E)
+
+To learn about different input and output streams:
+  - [InputStream](https://jenkov.com/tutorials/java-io/inputstream.html)
+  - [OutputStream](https://jenkov.com/tutorials/java-io/outputstream.html)
+  - [DataInputStream](https://jenkov.com/tutorials/java-io/datainputstream.html)
+  - [DataOutputStream](https://jenkov.com/tutorials/java-io/dataoutputstream.html)
+  - [FileInputStream](https://jenkov.com/tutorials/java-io/fileinputstream.html)
+  - [FileOutputStream](https://jenkov.com/tutorials/java-io/fileoutputstream.html)
+  - [PrintWriter](https://jenkov.com/tutorials/java-io/printwriter.html)
+
+Some links to learn how to work and create json in java:
+  - [Working with jackson](https://jenkov.com/tutorials/java-json/jackson-installation.html)
+  
+
 
 Also, you can find a wealth of knowledge from various YouTube courses. They can be a great source of learning. Alongside, joining discussions on forums and reading helpful documents can also be beneficial.
