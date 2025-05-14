@@ -159,7 +159,7 @@ The application allows clients to upload files from their local directory to the
 - Send a file download request from the client.
 - Implement `sendFile()` on the server to send the selected file and its size.
 - Receive the file on the client and save it to `resources/Client/<username>/`.
-- Place some files in `resources/server/` for the server for the client for testing.
+- Place some files in `resources/server/` for the server for testing.
 
 ---
 
@@ -199,7 +199,9 @@ The Message class defines a **structured format** for data exchanged between the
           
       - Display chat messages in a scrolling window.
           
-  - Implement a chat history to show previous messages, allowing users to scroll back and view past conversations.
+**Chat History**  
+
+  - Implement a chat history to show previous messages.
           
     
 
