@@ -130,8 +130,24 @@ In this task, you will complete the functionality for a basic command-line chat 
 ### 🏦 File Upload / Download
 
 #### 📝 Task Description
+The application allows clients to upload files from their local directory to the server and download files stored on the server to their local folder. Each client has their own folder under `resources/Client/<username>`.
 
 #### 🛠 What You Need to Do
+#### Upload
+
+- Let the user select a file from `resources/Client/<username>`.
+- Send file metadata (name) to the server to indicate an upload is starting.
+- Read the file as bytes and send it over the socket.
+- On the server, implement `receiveFile()` to accept the file data and save it using `saveUploadedFile()`.
+
+#### Download
+
+- Send a file list request to the server.
+- On the server, implement `sendFileList()` to list and send back all files in `Resources/Server/`.
+- Let the client select a file from the list.
+- Send a file download request from the client.
+- Implement `sendFile()` on the server to send the selected file and its size.
+- Receive the file on the client and save it to `resources/Client/<username>/`.
 
 ---
 
