@@ -103,12 +103,9 @@ public class Client {
 
 ---
 
-- 
-
----  
-
-
 ## Practical Questions 💻
+
+
 
 ### 🧮 Chat
 
@@ -118,7 +115,7 @@ In this task, you will complete the functionality for a basic command-line chat 
 
 
 #### 🛠 What You Need to Do
----
+
 - Implement the logic for reading and processing incoming messages on the server side.
 - Handle message sending from the server to an individual client.
 - Broadcast messages from one user to all others and update the chat history.
@@ -134,6 +131,21 @@ In this task, you will complete the functionality for a basic command-line chat 
 
 #### 📝 Task Description
 
+### 📬 About the `Message` Class (Optional)
+
+The [`Message`](https://chatgpt.com/c/Shared/Message.java) class defines a **structured format** for data exchanged between the **Client** and **Server**, such as login requests, chat messages, file operations, or other commands.
+
+> **Note:**  
+> This class is **not required** for socket communication.  
+> It is provided as a **convenient option** for structured messaging between the client and server.  
+> You may choose to use:
+>
+> - Java serialization,
+>
+> - JSON with a library like Jackson or Gson,
+>
+> - Or your own custom protocol (e.g., delimited strings).
+>
 
 
 ---
@@ -162,13 +174,15 @@ In this task, you will complete the functionality for a basic command-line chat 
 
 Your work on this assignment will be evaluated based on:
 
-- **Understanding of Multithreading Concepts**: Your ability to accurately answer the theoretical questions, and demonstrating a deep understanding of multithreading in Java. Remember that the answers to the theoretical questions should be provided separately in a markdown file.
+- **Understanding of Networking Concepts**: Your ability to accurately answer the theoretical questions. Remember that the answers to the theoretical questions should be provided separately in a markdown file.
 
 - **Code Quality**: Your code should be well-structured, readable, and efficient. Proper use of Java conventions, including variable naming, class structure, and comments, will also be considered.
 
-- Don’t forget to answer the question in the Monte Carlo task within the report file.
 
-- Your Banking System code must pass all the provided tests.
+- 🔒 Important Constraint
+  The Server and Client modules must not reference each other directly in code.
+  They communicate only through sockets, not through shared classes.
+  However, both the server and client can reference the Shared folder to use common data structures, constants, or utilities.
 
 - Total: 100 points
     - 🧠 Theoretical Questions – 20 points
