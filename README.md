@@ -132,7 +132,7 @@ In this task, you will complete the functionality for a basic command-line chat 
 - On the client side, implement the functionality to listen for and display new messages from the server.
 - Start the client-side message receiver when a user enters the chat.
 - Enable sending a message from the client to the server when the user types in the chat.
-- Implement the exit mechanism so that when a user types `/exit`, the client disconnects cleanly from the server.
+- Implement the exit mechanism so that when a user types `/exit`, the client disconnects cleanly from the chat.
 
 
 
