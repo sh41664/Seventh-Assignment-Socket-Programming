@@ -34,9 +34,9 @@ If you don’t have Gradle installed locally, you can either:
 ## Introduction
 Welcome to the Seventh Advanced Programming (AP) Assignment. This project is divided into two main sections:
 
-1. **Theoretical Questions**: This section is designed to deepen your understanding of advanced multithreading concepts in Java. You'll have to analyze one code block and answer questions about it.
+1. **Theoretical Questions**: This section is designed to deepen your understanding of networking concepts in Java. You'll have to analyze one code block and answer questions about it.
 
-2. **Practical Questions**: In this section, you'll get hands-on experience with multithreading in Java. Your code will be manually checked to ensure you've implemented the tasks using multithreading.
+2. **Practical Questions**: In this section, you'll get hands-on experience with socket-programming in Java.
 
 
 ## Objectives 🎯
@@ -90,6 +90,7 @@ public class Client {
     }
 }
 ```  
+
 **Note:** The server file is not provided as part of this project. You are encouraged to write your own server implementation for testing and running the application.
 ### **Questions:**
 ####  Method 1: **Plain String Format**
@@ -116,7 +117,7 @@ public class Client {
 
 
 
-### 🧮 Chat
+### Chat
 
 #### 📝 Task Description
 ---
@@ -136,7 +137,7 @@ In this task, you will complete the functionality for a basic command-line chat 
 
 
 
-### 🏦 File Upload / Download
+### File Upload / Download
 
 #### 📝 Task Description
 The application allows clients to upload files from their local directory to the server and download files stored on the server to their local folder. Each client has their own folder under `resources/Client/<username>`.
@@ -146,7 +147,7 @@ The application allows clients to upload files from their local directory to the
 ##### Upload
 
 - Let the user select a file from `resources/Client/<username>`.
-- Send file metadata (name) to the server to indicate an upload is starting.
+- Send file metadata (name and length) to the server to indicate an upload is starting.
 - Read the file as bytes and send it over the socket.
 - On the server, implement `receiveFile()` to accept the file data and save it using `saveUploadedFile()`.
 - Place some files in `resources/client/<username>/` for the client for testing.
@@ -154,7 +155,7 @@ The application allows clients to upload files from their local directory to the
 ##### Download
 
 - Send a file list request to the server.
-- On the server, implement `sendFileList()` to list and send back all files in `Resources/Server/`.
+- On the server, implement `sendFileList()` to list and send back all files in `resources/Server/`.
 - Let the client select a file from the list.
 - Send a file download request from the client.
 - Implement `sendFile()` on the server to send the selected file and its size.
@@ -165,7 +166,7 @@ The application allows clients to upload files from their local directory to the
 
 ### 📬 About the `Message` Class (Optional)
 
-The [`Message`](https://chatgpt.com/c/Shared/Message.java) class defines a **structured format** for data exchanged between the **Client** and **Server**, such as login requests, chat messages, file operations, or other commands.
+The Message class defines a **structured format** for data exchanged between the **Client** and **Server**, such as login requests, chat messages, file operations, or other commands.
 
 > **Note:**  
 > This class is **not required** for socket communication.  
@@ -189,11 +190,18 @@ The [`Message`](https://chatgpt.com/c/Shared/Message.java) class defines a **str
 
 ### Chat
 
-1. **Graphical Visualization (UI)**
-    
-
-### File Upload / Download
-1. **Graphical Visualization (UI)**
+**Graphical Visualization (UI)**
+  
+    - Implement a graphical user interface (GUI) for the chat application. The GUI should allow users to:
+        
+        - See a list of connected users.
+            
+        - Send and receive messages in real time.
+            
+        - Display chat messages in a scrolling window.
+            
+    - Implement a chat history to show previous messages, allowing users to scroll back and view past conversations.
+            
     
 
 
@@ -232,9 +240,8 @@ The deadline for submitting your code is **Wednesday, May 21** (31st of Ordibehe
 
 For assistance with this assignment, you may refer to the following resources:
 
-Consider watching the following videos and reading the blogs to grasp a better understanding of how socket programming in Java works:
 - [Java Socket Programming Client Server Messenger by WittCode](https://youtu.be/gchR3DpY-8Q?si=dSyRSnFmB6fLIpej)
-
+- [Working with jackson](https://jenkov.com/tutorials/java-json/jackson-installation.html)
 To learn about different input and output streams:
   - [InputStream](https://jenkov.com/tutorials/java-io/inputstream.html)
   - [OutputStream](https://jenkov.com/tutorials/java-io/outputstream.html)
@@ -243,9 +250,6 @@ To learn about different input and output streams:
   - [FileInputStream](https://jenkov.com/tutorials/java-io/fileinputstream.html)
   - [FileOutputStream](https://jenkov.com/tutorials/java-io/fileoutputstream.html)
   - [PrintWriter](https://jenkov.com/tutorials/java-io/printwriter.html)
-
-Some links to learn how to work and create json in java:
-  - [Working with jackson](https://jenkov.com/tutorials/java-json/jackson-installation.html)
   
 
 Also, you can find a wealth of knowledge from various YouTube courses. They can be a great source of learning. Alongside, joining discussions on forums and reading helpful documents can also be beneficial.
