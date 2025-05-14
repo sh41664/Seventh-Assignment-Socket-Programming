@@ -38,10 +38,12 @@ public class ClientHandler implements Runnable {
     }
 
     private void sendFileList(){
-
+        // TODO: List all files in the server directory
+        // TODO: Send a message containing file names as a comma-separated string
     }
     private void sendFile(String fileName){
-
+        // TODO: Send file name and size to client
+        // TODO: Send file content as raw bytes
     }
     private void receiveFile(String filename, int fileLength)
     {
