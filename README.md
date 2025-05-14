@@ -192,16 +192,16 @@ The Message class defines a **structured format** for data exchanged between the
 
 **Graphical Visualization (UI)**
   
-    - Implement a graphical user interface (GUI) for the chat application. The GUI should allow users to:
-        
-        - See a list of connected users.
-            
-        - Send and receive messages in real time.
-            
-        - Display chat messages in a scrolling window.
-            
-    - Implement a chat history to show previous messages, allowing users to scroll back and view past conversations.
-            
+  - Implement a graphical user interface (GUI) for the chat application. The GUI should allow users to:
+      
+      - See a list of connected users.
+          
+      - Send and receive messages in real time.
+          
+      - Display chat messages in a scrolling window.
+          
+  - Implement a chat history to show previous messages, allowing users to scroll back and view past conversations.
+          
     
 
 
