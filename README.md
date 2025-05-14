@@ -41,10 +41,19 @@ Welcome to the Seventh Advanced Programming (AP) Assignment. This project is div
 
 ## Objectives 🎯
 
-- 
+- Reviewing the concepts of socket programming
+
+- Creating a local server to handle incoming client requests
+
+- Enabling clients to send messages in a group chat or download files from the server
+
+- Designing a request-response mechanism for communication between client and server
+
 
 ## Theoretical Questions 📝
 **Note: Please answer these questions in a Markdown file (Report.md) and place it in the root directory of your fork. Include code or screenshots where you see fit.**
+
+
 
 ### 1. Three Ways to Send a Login Message
 
@@ -81,7 +90,7 @@ public class Client {
     }
 }
 ```  
-
+**Note:** The server file is not provided as part of this project. You are encouraged to write your own server implementation for testing and running the application.
 ### **Questions:**
 ####  Method 1: **Plain String Format**
 
@@ -133,14 +142,16 @@ In this task, you will complete the functionality for a basic command-line chat 
 The application allows clients to upload files from their local directory to the server and download files stored on the server to their local folder. Each client has their own folder under `resources/Client/<username>`.
 
 #### 🛠 What You Need to Do
-#### Upload
+
+##### Upload
 
 - Let the user select a file from `resources/Client/<username>`.
 - Send file metadata (name) to the server to indicate an upload is starting.
 - Read the file as bytes and send it over the socket.
 - On the server, implement `receiveFile()` to accept the file data and save it using `saveUploadedFile()`.
+- Place some files in `resources/client/<username>/` for the client for testing.
 
-#### Download
+##### Download
 
 - Send a file list request to the server.
 - On the server, implement `sendFileList()` to list and send back all files in `Resources/Server/`.
@@ -148,6 +159,7 @@ The application allows clients to upload files from their local directory to the
 - Send a file download request from the client.
 - Implement `sendFile()` on the server to send the selected file and its size.
 - Receive the file on the client and save it to `resources/Client/<username>/`.
+- Place some files in `resources/server/` for the server for the client for testing.
 
 ---
 
