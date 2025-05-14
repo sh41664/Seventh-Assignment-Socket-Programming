@@ -88,13 +88,9 @@ public class Client {
     }
 
     private static void uploadFile(Scanner scanner) throws IOException {
-        File userFolder = new File("resources/Client/" + username);
-        if (!userFolder.exists() || !userFolder.isDirectory()) {
-            System.out.println("No uploadable files found in " + userFolder.getPath());
-            return;
-        }
 
-        File[] files = userFolder.listFiles((dir, name) -> !new File(dir, name).isDirectory());
+        //TODO: list all files in the resources/Client/<username> folder
+        File[] files = null;
         if (files == null || files.length == 0) {
             System.out.println("No files to upload.");
             return;
