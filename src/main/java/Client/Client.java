@@ -1,19 +1,16 @@
 package Client;
 
-import Shared.Message;
-
 import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
 
 public class Client {
-    private static ObjectOutputStream out;
-    private static ObjectInputStream in;
+    // TODO: Declare variables for socket input/output streams
     private static String username;
     public static void main(String[] args) throws Exception {
-        //TODO: create a socket
+
         try (Socket socket = new Socket("localhost", 12345)) {
-            //TODO: Initialize in and out
+            //TODO: Use the socket input and output streams as needed
 
 
             Scanner scanner = new Scanner(System.in);
@@ -32,8 +29,8 @@ public class Client {
 
                 sendLoginRequest(username, password);
 
-                //TODO: get login response
-                //TODO: manage login
+                // TODO: Receive and check the server's login response
+                // TODO: Set 'loggedIn = true' if credentials are correct; otherwise, prompt again
             }
 
             // --- ACTION MENU LOOP ---
@@ -48,7 +45,6 @@ public class Client {
                     case "3" -> requestDownload(scanner);
                     case "0" -> {
                         System.out.println("Exiting...");
-                        //TODO: close the socket
                         return;
                     }
                     default -> System.out.println("Invalid choice.");
@@ -69,14 +65,13 @@ public class Client {
     }
 
     private static void sendLoginRequest(String username, String password) {
-        //TODO: send the request
+        //TODO: send the login request
     }
     private static void enterChat(Scanner scanner) throws IOException {
         System.out.print("You have entered the chat ");
 
 
-        //TODO create and start clientReceiver to get new massages from server
-
+        //TODO: Create and start ClientReceiver thread to continuously get new messages from server
         String message_string = "";
         while (!message_string.equalsIgnoreCase("/exit")){
             message_string = scanner.nextLine();
@@ -89,9 +84,7 @@ public class Client {
     }
 
     private static void sendChatMessage(String message_to_send) throws IOException {
-        Message message = new Message(1,username,message_to_send);
         //TODO: send the chat message
-
     }
 
     private static void uploadFile(Scanner scanner) throws IOException {
@@ -127,13 +120,13 @@ public class Client {
             return;
         }
 
-        //TODO: send a message informing the server that a file is going to be uploaded
-        //TODO: send the file in bytes
+        // TODO: Notify the server that a file upload is starting (e.g., send file metadata)
+        // TODO: Read the file into a byte array and send it over the socket
     }
 
     private static void requestDownload(Scanner scanner) throws IOException {
-        //TODO: send request to get file names
-        //TODO: show the names and let the user to select one
-        //TODO: download the file into the specific folder of the user in the resources folder
+        // TODO: Send a request to the server to retrieve the list of available files
+        // TODO: Display the file names and prompt the user to select one
+        // TODO: Download the selected file and save it to the user's folder in 'resources/Client/<username>'
     }
 }
