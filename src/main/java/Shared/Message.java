@@ -16,4 +16,9 @@ public class Message implements Serializable {
         this.sender = sender;
         this.content = content;
     }
+
+    @Override
+    public String toString(){
+        return sender + ": " + content;
+    }
 }
