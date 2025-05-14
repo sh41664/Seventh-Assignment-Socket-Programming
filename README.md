@@ -120,7 +120,6 @@ public class Client {
 ### Chat
 
 #### 📝 Task Description
----
 In this task, you will complete the functionality for a basic command-line chat application. The application allows multiple users to join a shared chat room, send messages to each other, and receive messages in real time. Your work involves both the client-side and server-side logic needed to support live message exchange and communication flow.
 
 
@@ -242,14 +241,15 @@ For assistance with this assignment, you may refer to the following resources:
 
 - [Java Socket Programming Client Server Messenger by WittCode](https://youtu.be/gchR3DpY-8Q?si=dSyRSnFmB6fLIpej)
 - [Working with jackson](https://jenkov.com/tutorials/java-json/jackson-installation.html)
+
 To learn about different input and output streams:
-  - [InputStream](https://jenkov.com/tutorials/java-io/inputstream.html)
-  - [OutputStream](https://jenkov.com/tutorials/java-io/outputstream.html)
-  - [DataInputStream](https://jenkov.com/tutorials/java-io/datainputstream.html)
-  - [DataOutputStream](https://jenkov.com/tutorials/java-io/dataoutputstream.html)
-  - [FileInputStream](https://jenkov.com/tutorials/java-io/fileinputstream.html)
-  - [FileOutputStream](https://jenkov.com/tutorials/java-io/fileoutputstream.html)
-  - [PrintWriter](https://jenkov.com/tutorials/java-io/printwriter.html)
-  
+- [InputStream](https://jenkov.com/tutorials/java-io/inputstream.html)
+- [OutputStream](https://jenkov.com/tutorials/java-io/outputstream.html)
+- [DataInputStream](https://jenkov.com/tutorials/java-io/datainputstream.html)
+- [DataOutputStream](https://jenkov.com/tutorials/java-io/dataoutputstream.html)
+- [FileInputStream](https://jenkov.com/tutorials/java-io/fileinputstream.html)
+- [FileOutputStream](https://jenkov.com/tutorials/java-io/fileoutputstream.html)
+- [PrintWriter](https://jenkov.com/tutorials/java-io/printwriter.html)
+
 
 Also, you can find a wealth of knowledge from various YouTube courses. They can be a great source of learning. Alongside, joining discussions on forums and reading helpful documents can also be beneficial.
