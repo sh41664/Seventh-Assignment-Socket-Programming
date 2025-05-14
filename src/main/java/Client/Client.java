@@ -1,5 +1,7 @@
 package Client;
 
+import Shared.Message;
+
 import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
@@ -72,10 +74,24 @@ public class Client {
     private static void enterChat(Scanner scanner) throws IOException {
         System.out.print("You have entered the chat ");
 
+
+        //TODO create and start clientReceiver to get new massages from server
+
+        String message_string = "";
+        while (!message_string.equalsIgnoreCase("/exit")){
+            message_string = scanner.nextLine();
+
+            if (!message_string.equalsIgnoreCase("/exit")){
+
+                sendChatMessage(message_string);
+            }
+        }
     }
 
-    private static void sendChatMessage(String message) throws IOException {
+    private static void sendChatMessage(String message_to_send) throws IOException {
+        Message message = new Message(1,username,message_to_send);
         //TODO: send the chat message
+
     }
 
     private static void uploadFile(Scanner scanner) throws IOException {
