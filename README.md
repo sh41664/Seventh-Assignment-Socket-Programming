@@ -46,13 +46,62 @@ Welcome to the Seventh Advanced Programming (AP) Assignment. This project is div
 ## Theoretical Questions 📝
 **Note: Please answer these questions in a Markdown file (Report.md) and place it in the root directory of your fork. Include code or screenshots where you see fit.**
 
-### 1. ``
+### 1. Three Ways to Send a Login Message
 
 ```java  
-  
+  class LoginRequest implements Serializable {
+    String username;
+    String password;
+
+    LoginRequest(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+}
+public class Client {
+    public static void main(String[] args) throws Exception {
+        Socket socket = new Socket("localhost", 5050);
+
+        LoginRequest loginRequest = new LoginRequest("user1", "pass123");
+        // === Method 1: Plain String ===
+        PrintWriter stringOut = new PrintWriter(socket.getOutputStream(), true);
+        stringOut.println("LOGIN|" + loginRequest.username + "|" + loginRequest.password);
+
+        // === Method 2: Serialized Object ===
+        ObjectOutputStream objectOut = new ObjectOutputStream(socket.getOutputStream());
+        objectOut.writeObject(loginRequest);
+
+        // === Method 3: JSON ===
+        Gson gson = new Gson();
+        String json = gson.toJson(loginRequest);
+        PrintWriter jsonOut = new PrintWriter(socket.getOutputStream(), true);
+        jsonOut.println(json);
+
+        socket.close();
+    }
+}
 ```  
 
-**Questions:**
+### **Questions:**
+####  Method 1: **Plain String Format**
+
+1. What are the pros and cons of using a plain string like `"LOGIN|user|pass"`?
+2. How would you parse it, and what happens if the delimiter appears in the data?
+3. Is this approach suitable for more complex or nested data?
+
+---
+#### Method 2:  **Serialized Java Object**
+
+1. What’s the advantage of sending a full Java object?
+2. Could this work with a non-Java client like Python?
+
+---
+#### Method 3: **JSON**
+
+1. Why is JSON often preferred for communication between different systems?
+2. Would this format work with servers or clients written in other languages?    
+
+---
 
 - 
 
