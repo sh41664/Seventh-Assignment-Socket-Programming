@@ -135,19 +135,19 @@ The application allows clients to upload files from their local directory to the
 #### 🛠 What You Need to Do
 #### Upload
 
-- [ ] Let the user select a file from `resources/Client/<username>`.
-- [ ] Send file metadata (name) to the server to indicate an upload is starting.
-- [ ] Read the file as bytes and send it over the socket.
-- [ ] On the server, implement `receiveFile()` to accept the file data and save it using `saveUploadedFile()`.
+- Let the user select a file from `resources/Client/<username>`.
+- Send file metadata (name) to the server to indicate an upload is starting.
+- Read the file as bytes and send it over the socket.
+- On the server, implement `receiveFile()` to accept the file data and save it using `saveUploadedFile()`.
 
 #### Download
 
-- [ ] Send a file list request to the server.
-- [ ] On the server, implement `sendFileList()` to list and send back all files in `Resources/Server/`.
-- [ ] Let the client select a file from the list.
-- [ ] Send a file download request from the client.
-- [ ] Implement `sendFile()` on the server to send the selected file and its size.
-- [ ] Receive the file on the client and save it to `resources/Client/<username>/`.
+- Send a file list request to the server.
+- On the server, implement `sendFileList()` to list and send back all files in `Resources/Server/`.
+- Let the client select a file from the list.
+- Send a file download request from the client.
+- Implement `sendFile()` on the server to send the selected file and its size.
+- Receive the file on the client and save it to `resources/Client/<username>/`.
 
 ---
 
