@@ -37,12 +37,17 @@ public class ClientHandler implements Runnable {
         //TODO: send the message to every other user currently in the chat room
     }
 
-    private void receiveFile(String filename)
+    private void sendFileList(){
+
+    }
+    private void sendFile(String fileName){
+
+    }
+    private void receiveFile(String filename, int fileLength)
     {
         // TODO: Receive uploaded file content and store it in a byte array
         // TODO: after the upload is done, save it using saveUploadedFile
     }
-
     private void saveUploadedFile(String filename, byte[] data) throws IOException {
         // TODO: Save the byte array to a file in the Server's resources folder
     }
