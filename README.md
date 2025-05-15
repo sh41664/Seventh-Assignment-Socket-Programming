@@ -127,7 +127,7 @@ In this task, you will complete the functionality for a basic command-line chat 
 
 - Implement the logic for reading and processing incoming messages on the server side.
 - Handle message sending from the server to an individual client.
-- Broadcast messages from one user to all others and update the chat history.
+- Broadcast messages from one user to all other users in the chat.
 - Ensure that the server updates its list of connected clients properly when a client disconnects.
 - On the client side, implement the functionality to listen for and display new messages from the server.
 - Start the client-side message receiver when a user enters the chat.
@@ -149,7 +149,7 @@ The application allows clients to upload files from their local directory to the
 - Send file metadata (name and length) to the server to indicate an upload is starting.
 - Read the file as bytes and send it over the socket.
 - On the server, implement `receiveFile()` to accept the file data and save it using `saveUploadedFile()`.
-- Place some files in `resources/client/<username>/` for the client for testing.
+- Place some files in `resources/Client/<username>/` for the client for testing.
 
 ##### Download
 
@@ -159,7 +159,7 @@ The application allows clients to upload files from their local directory to the
 - Send a file download request from the client.
 - Implement `sendFile()` on the server to send the selected file and its size.
 - Receive the file on the client and save it to `resources/Client/<username>/`.
-- Place some files in `resources/server/` for the server for testing.
+- Place some files in `resources/Server/` for the server for testing.
 
 ---
 
