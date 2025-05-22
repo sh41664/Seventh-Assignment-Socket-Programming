@@ -17,13 +17,14 @@ public class Server {
     public static ArrayList<ClientHandler> clients = new ArrayList<>();
 
     public static void main(String[] args) throws Exception {
-        // TODO: Create a ServerSocket listening on a port (e.g., 12345)
-
-        // TODO: Accept incoming client connections in a loop
-        //       For each connection:
-        //       - Create a new ClientHandler object
-        //       - Add it to the 'clients' list
-        //       - Start a new thread to handle communication
+        ServerSocket serverSocket = new ServerSocket(2819);
+        while(true){
+            Socket socket = serverSocket.accept();
+            System.out.println("Client Connected");
+            ClientHandler clientHandler = new ClientHandler(socket,clients);
+            clients.add(clientHandler);
+            new Thread(clientHandler).start();
+        }
     }
 
     public static boolean authenticate(String username, String password) {
