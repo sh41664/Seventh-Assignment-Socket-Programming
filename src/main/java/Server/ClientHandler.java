@@ -1,62 +1,169 @@
 package Server;
 
-import java.io.IOException;
+import Shared.Message;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.*;
 import java.net.Socket;
 import java.util.List;
 
 public class ClientHandler implements Runnable {
     private Socket socket;
-    // TODO: Declare a variable to hold the input stream from the socket
-    // TODO: Declare a variable to hold the output stream from the socket
+    private DataInputStream in ;
+    private DataOutputStream out ;
+    private BufferedInputStream bin ;
+    private BufferedOutputStream bout ;
     private List<ClientHandler> allClients;
     private String username;
 
-    public ClientHandler() {
-        // TODO: Modify the constructor as needed
+
+    public ClientHandler(Socket socket, List<ClientHandler> allClients) {
+
+        this.socket = socket;
+        this.allClients = allClients;
+        try {
+            in = new DataInputStream(socket.getInputStream());
+            out = new DataOutputStream(socket.getOutputStream());
+            bin = new BufferedInputStream(socket.getInputStream());
+            bout = new BufferedOutputStream(socket.getOutputStream());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public void run() {
+        ObjectMapper mapper = new ObjectMapper();
         try {
             while (true) {
-                // TODO: Read incoming message from the input stream
-                // TODO: Process the message
+                String message = in.readUTF();
+                System.out.println(message);
+                Message newMessage = mapper.readValue(message, Message.class);
+                int type = newMessage.getType();
+                switch (type) {
+                    case 0:
+                        handleLogin(newMessage.getUsername(), newMessage.getPassword());
+                        break;
+                    case 1:
+                        String sender = newMessage.getSender();
+                        String content = newMessage.getContent();
+                        broadcast(sender+": "+content);
+                        break;
+                    case 3:
+                        String fileName = newMessage.getFileName();
+                        int fileSize = newMessage.getFileSize();
+                        receiveFile(fileName, fileSize);
+                        break;
+                    case 4:
+                        sendFileList();
+                        break;
+                    case 6:
+                        String requestedFileName = newMessage.getFileName();
+                        sendFile(requestedFileName);
+                        break;
+                }
             }
-        } catch (Exception e) {
-
-        } finally {
-            //TODO: Update the clients list in Server
+        }catch (Exception e) {
+            System.out.println(e);
         }
     }
 
 
     private void sendMessage(String msg){
-        //TODO: send the message (chat) to the client
+        try {
+            out.writeUTF(msg);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
     private void broadcast(String msg) throws IOException {
-        //TODO: send the message to every other user currently in the chat room
+        for(ClientHandler client: allClients) {
+            if(!client.equals(this)) {
+                client.sendMessage(msg);
+            }
+        }
     }
 
     private void sendFileList(){
-        // TODO: List all files in the server directory
-        // TODO: Send a message containing file names as a comma-separated string
+        String filesList = "";
+        ObjectMapper mapper = new ObjectMapper();
+        File folder = new File("src\\main\\resources\\Server\\Files");
+        File[] listOfFiles = folder.listFiles();
+
+        // list available files
+        System.out.println("sending list of files . . .");
+        for (int i = 0; i < listOfFiles.length; i++) {
+            filesList += ((i + 1) + ". " + listOfFiles[i].getName() + ",");
+        }
+
+        System.out.println(filesList);
+
+        Message fileListMessage = new Message(5,"Server", filesList);
+        try {
+            out.writeUTF(mapper.writeValueAsString(fileListMessage));
+            out.flush();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
     private void sendFile(String fileName){
-        // TODO: Send file name and size to client
-        // TODO: Send file content as raw bytes
-    }
-    private void receiveFile(String filename, int fileLength)
-    {
-        // TODO: Receive uploaded file content and store it in a byte array
-        // TODO: after the upload is done, save it using saveUploadedFile
-    }
-    private void saveUploadedFile(String filename, byte[] data) throws IOException {
-        // TODO: Save the byte array to a file in the Server's resources folder
+        ObjectMapper mapper = new ObjectMapper();
+        File file = new File("src\\main\\resources\\Server\\Files\\"+fileName);
+
+        Message fileMetaData = new Message(3,"Server", fileName+"/"+file.length());
+        try {
+            FileInputStream fis = new FileInputStream(file);
+            out.writeUTF(mapper.writeValueAsString(fileMetaData));
+            out.flush();
+
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = fis.read(buffer)) != -1) {
+                bout.write(buffer, 0, bytesRead);
+            }
+            bout.flush();
+            System.out.println("file Sent");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
+
+    private void receiveFile(String filename, int fileLength)
+    {
+        File savedFile = new File("src\\main\\resources\\Server\\Files\\"+filename);
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(savedFile);
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            long totalRead=0;
+            while (totalRead < fileLength &&
+                    (bytesRead = bin.read(buffer, 0, (int) Math.min(buffer.length, fileLength - totalRead))) != -1) {
+                fileOutputStream.write(buffer, 0, bytesRead);
+                totalRead += bytesRead;
+            }
+            System.out.println(filename + " received");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
     private void handleLogin(String username, String password) throws IOException, ClassNotFoundException {
-        // TODO: Call Server.authenticate(username, password) to check credentials
-        // TODO: Send success or failure response to the client
+        ObjectMapper mapper = new ObjectMapper();
+        boolean accepted = Server.authenticate(username, password);
+        Message response;
+        if(accepted){
+            this.username = username;
+            response = new Message(2,"Server","approved");
+        }else{
+            response = new Message(2,"Server","rejected");
+        }
+        out.writeUTF(mapper.writeValueAsString(response));
+        out.flush();
     }
 
 }
